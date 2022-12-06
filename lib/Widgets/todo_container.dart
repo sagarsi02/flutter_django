@@ -5,6 +5,7 @@ class TodoContainer extends StatelessWidget {
   final String title;
   final String desc;
   final bool isDone;
+  final Function onPress;
   // final DateTime date;
   const TodoContainer({
     Key? key,
@@ -12,24 +13,26 @@ class TodoContainer extends StatelessWidget {
     required this.title,
     required this.desc,
     required this.isDone,
+    required this.onPress,
     // required this.date,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    String sc = 'Delete';
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(6.0),
       child: Container(
         width: double.infinity,
         height: 100,
         decoration: const BoxDecoration(
-          color: Color.fromARGB(255, 197, 15, 103),
+          color: Color.fromARGB(255, 105, 31, 152),
           borderRadius: BorderRadius.all(
             Radius.circular(4),
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(15.0),
+          padding: const EdgeInsets.all(12.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -41,18 +44,15 @@ class TodoContainer extends StatelessWidget {
                     style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
-                      fontSize: 20,
+                      fontSize: 21,
                     ),
                   ),
-                  ElevatedButton.icon(
-                    onPressed: null,
+                  IconButton(
+                    onPressed: () => onPress(),
                     icon: const Icon(
                       Icons.delete,
-                      color: Colors.white,
-                      size: 25.0,
-                    ),
-                    label: const Text(
-                      "Delete",
+                      color: Color.fromARGB(255, 223, 223, 223),
+                      size: 30,
                     ),
                   )
                 ],
@@ -66,7 +66,7 @@ class TodoContainer extends StatelessWidget {
                   desc,
                   style: const TextStyle(
                     color: Colors.white,
-                    fontSize: 16,
+                    fontSize: 14,
                   ),
                 ),
               )
