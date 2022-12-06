@@ -67,9 +67,6 @@ class _HomePageState extends State<HomePage> {
                   labelText: 'Todo Description',
                   hintText: 'Enter Todo Description',
                 ),
-                onSubmitted: (text) {
-                  print('TextField #1 onSubmitted: $text');
-                },
               ),
               ElevatedButton(
                 onPressed: null,
